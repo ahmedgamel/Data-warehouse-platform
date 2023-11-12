@@ -43,3 +43,51 @@ resource "azurerm_storage_data_lake_gen2_path" "example_path" {
     permissions = "rwx"
   }
 }
+
+
+# Diagnostic Settings for Azure Data Lake Storage
+resource "azurerm_monitor_diagnostic_setting" "adls_diagnostics" {
+  name                       = "adlsDiagnostics"
+  target_resource_id         = azurerm_storage_account.adls_account.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  log {
+    category = "StorageRead"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "StorageWrite"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "StorageDelete"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
