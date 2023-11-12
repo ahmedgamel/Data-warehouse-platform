@@ -1,0 +1,36 @@
+{
+    "name": "SqlToAdlsCopyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyDataFromSqlToAdls",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "SqlInputDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "AdlsRawOutputDataset",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "SELECT * FROM yourTableName"
+                    },
+                    "sink": {
+                        "type": "DelimitedTextSink",
+                        "formatSettings": {
+                            "type": "DelimitedTextWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                }
+            }
+        ]
+    }
+}
