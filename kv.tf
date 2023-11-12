@@ -49,3 +49,31 @@ resource "azurerm_key_vault_key" "sample_key" {
     "wrapKey",
   ]
 }
+
+# Diagnostic Settings for Azure Key Vault
+resource "azurerm_monitor_diagnostic_setting" "kv_diagnostics" {
+  name                       = "kvDiagnostics"
+  target_resource_id         = azurerm_key_vault.kv.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  log {
+    category = "AuditEvent" # Common category for Key Vault
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
+
