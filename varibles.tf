@@ -163,3 +163,23 @@ variable "service_principal_id_secret_name" {
   type        = string
 }
 
+variable "service_principal_key_secret_name" {
+  description = "Secret name for the service principal key in Azure Data Factory"
+  type        = string
+}
+
+variable "diagnostic_setting_name" {
+  description = "Common name for diagnostic settings in various resources"
+  type        = string
+  default     = "defaultDiagnostics"
+}
+
+variable "log_analytics_workspace_id" {
+  description = "The ID of the Log Analytics Workspace for diagnostic settings"
+  type        = string
+}
+
+variable "log_category" {
+  description = "Log category for diagnostic settings"
+  type        = string
+}
