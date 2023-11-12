@@ -46,3 +46,40 @@ resource "azurerm_data_factory_linked_service_key_vault" "kv_linked_service" {
   data_factory_name    = azurerm_data_factory.adf.name
   key_vault_id         = azurerm_key_vault.kv.id
 }
+
+# Diagnostic Settings for Azure Data Factory
+resource "azurerm_monitor_diagnostic_setting" "adf_diagnostics" {
+  name                       = "adfDiagnostics"
+  target_resource_id         = azurerm_data_factory.adf.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  log {
+    category = "ActivityRuns"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "PipelineRuns"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
