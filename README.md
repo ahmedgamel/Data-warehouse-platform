@@ -19,14 +19,14 @@ In the project repository, there are the Terraform configurations along with Azu
 
 ## Services and Configurations
 
-- **Azure SQL Database **: Data source.
-- **Azure Data Lake Storage **: data storage including the landing zones, RAW, Curated, and Processed.
-- **Azure Synapse Analytics **: Data warehousing and big data analytics.
-- **Azure Data Factory **: Orchestrator, including a pipeline for ingesting data from Azure SQL to ADLS.
-- **Azure Key Vault **: To store secrets, keys, and certificates.
-- **Virtual Network and Subnet **: All resources will be on one VNet.
-- **Log Analytics Workspace **: To collect and analyze logs and metrics from the services.
-- **Azure Monitor Diagnostics **: To monitor the performance and health of the services.
+- **Azure SQL Database**: Data source.
+- **Azure Data Lake Storage**: Data storage including the landing zones, RAW, Curated, and Processed.
+- **Azure Synapse Analytics**: Data warehousing and big data analytics.
+- **Azure Data Factory**: Orchestrator, including a pipeline for ingesting data from Azure SQL to ADLS.
+- **Azure Key Vault**: To store secrets, keys, and certificates.
+- **Virtual Network and Subnet**: All resources will be on one VNet.
+- **Log Analytics Workspace**: To collect and analyze logs and metrics from the services.
+- **Azure Monitor Diagnostics**: To monitor the performance and health of the services.
 
 ## Getting Started
 
