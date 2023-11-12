@@ -183,3 +183,43 @@ variable "log_category" {
   description = "Log category for diagnostic settings"
   type        = string
 }
+
+variable "aad_admin_username" {
+  description = "The Azure Active Directory Admin username for SQL Server"
+  type        = string
+}
+
+variable "aad_admin_object_id" {
+  description = "The object ID for the Azure Active Directory Admin for SQL Server"
+  type        = string
+}
+
+variable "sql_database_name" {
+  description = "The name of the SQL database"
+  type        = string
+}
+
+variable "sql_database_sku_name" {
+  description = "The SKU name of the SQL database"
+  type        = string
+}
+
+variable "firewall_rule_name" {
+  description = "The name of the SQL server firewall rule"
+  type        = string
+}
+
+variable "start_ip_address" {
+  description = "The starting IP address for the SQL server firewall rule"
+  type        = string
+}
+
+variable "end_ip_address" {
+  description = "The ending IP address for the SQL server firewall rule"
+  type        = string
+}
+
+variable "synapse_storage_data_lake_gen2_filesystem_id" {
+  description = "Storage Data Lake Gen2 Filesystem ID for Synapse"
+  type        = string
+}
