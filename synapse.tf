@@ -54,3 +54,51 @@ resource "azurerm_synapse_integration_runtime_azure" "integration_runtime" {
   type                 = "Managed"
 }
 
+
+# Diagnostic Settings for Azure Synapse Analytics
+resource "azurerm_monitor_diagnostic_setting" "synapse_diagnostics" {
+  name                       = "synapseDiagnostics"
+  target_resource_id         = azurerm_synapse_workspace.synapse.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  log {
+    category = "SynapseRbacOperations"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "SynapsePipelineRuns"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "SynapseActivityRuns"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
+
