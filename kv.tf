@@ -1,11 +1,11 @@
-resource "azurerm_key_vault" "data_seller_kv" {
+resource "azurerm_key_vault" "ds_kv" {
   name                        = "DSO_KV_UAT"
-  location                    = azurerm_resource_group.data_seller_rg.location
-  resource_group_name         = azurerm_resource_group.data_seller_rg.name
-  tenant_id                   = var.tenant_id
+  location                    = var.location
+  resource_group_name         = azurerm_resource_group.data_seller.name
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
   sku_name                    = "standard"
   soft_delete_enabled         = true
-  purge_protection_enabled    = false
+  purge_protection_enabled    = true
 
   network_acls {
     default_action             = "Deny"
