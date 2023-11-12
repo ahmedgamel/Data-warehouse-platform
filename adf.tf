@@ -8,6 +8,15 @@ resource "azurerm_data_factory" "adf" {
     type = "SystemAssigned"
   }
 
+  github_configuration {
+    account_name   = "ahmedgamel"
+    repository_name = "Data-warehouse-platform"
+    branch_name     = "main"
+    root_folder     = "/ADF_pipelines"  # the location of the Pipeline
+    git_url         = "https://github.com:ahmedgamel/Data-warehouse-platform.git"
+    authorization   = "github-personal-access-token"
+  }
+
   tags = {
     environment = "UAT"
   }
