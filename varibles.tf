@@ -117,3 +117,49 @@ variable "adls_filesystem_curated_name" {
   description = "The name of the curated data filesystem in Azure Data Lake Storage"
   type        = string
 }
+
+variable "adls_filesystem_processed_name" {
+  description = "The name of the processed data filesystem in Azure Data Lake Storage"
+  type        = string
+}
+
+variable "synapse_sql_admin_login" {
+  description = "SQL administrator login for Azure Synapse"
+  type        = string
+}
+
+variable "synapse_sql_admin_password" {
+  description = "SQL administrator password for Azure Synapse"
+  type        = string
+}
+
+variable "synapse_sql_pool_name" {
+  description = "Name of the SQL pool in Azure Synapse"
+  type        = string
+}
+
+variable "synapse_spark_pool_name" {
+  description = "Name of the Spark pool in Azure Synapse"
+  type        = string
+}
+
+variable "synapse_integration_runtime_name" {
+  description = "Name of the integration runtime in Azure Synapse"
+  type        = string
+}
+
+variable "adf_sql_connection_string" {
+  description = "Connection string for Azure Data Factory to connect to SQL Server"
+  type        = string
+}
+
+variable "adf_secret_value" {
+  description = "Secret value for Azure Data Factory"
+  type        = string
+}
+
+variable "service_principal_id_secret_name" {
+  description = "Secret name for the service principal ID in Azure Data Factory"
+  type        = string
+}
+
