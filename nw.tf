@@ -1,12 +1,12 @@
 # Define a virtual network and a subnet for the data platform
-resource "azurerm_virtual_network" "data_seller_vnet" {
-  name                = "DSO_VNet_UAT"
+resource "azurerm_virtual_network" "dso_vnet" {
+  name                = "DSO_VNET_UAT"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.data_seller_rg.location
-  resource_group_name = azurerm_resource_group.data_seller_rg.name
+  location            = azurerm_resource_group.dso_rg.location
+  resource_group_name = azurerm_resource_group.dso_rg.name
 }
 
-resource "azurerm_subnet" "data_seller_subnet" {
+resource "azurerm_subnet" "dso_subnet" {
   name                 = "DSO_Subnet_UAT"
   resource_group_name  = azurerm_resource_group.data_seller_rg.name
   virtual_network_name = azurerm_virtual_network.data_seller_vnet.name
