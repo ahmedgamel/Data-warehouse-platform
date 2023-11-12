@@ -36,5 +36,5 @@ In the project repository, there are the Terraform configurations along with Azu
 
 2. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repository/data-seller.git
-   cd data-seller
+   git clone https://github.com/your-repository/data-lakehouse-platform.git
+   cd data-lakehouse-platform
