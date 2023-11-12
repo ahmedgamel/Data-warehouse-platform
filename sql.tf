@@ -47,3 +47,61 @@ resource "azurerm_sql_active_directory_administrator" "sql_aad_admin" {
   tenant_id           = var.tenant_id
   object_id           = "your-aad-admin-object-id" # Replace with AAD Admin object ID
 }
+
+# Diagnostic Settings for Azure SQL Server
+resource "azurerm_monitor_diagnostic_setting" "sql_server_diagnostics" {
+  name                       = "sqlServerDiagnostics"
+  target_resource_id         = azurerm_sql_server.sql_server.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  log {
+    category = "SQLSecurityAuditEvents"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "DatabaseWaitStatistics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  log {
+    category = "QueryStoreRuntimeStatistics"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "Basic"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "ServiceTierAdvisor"
+    enabled  = true
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+}
+
